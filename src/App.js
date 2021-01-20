@@ -27,7 +27,7 @@ function App() {
     document.querySelector('.keys-input').value = '';
     setIsLoading(true)
     dispatch(createKeyList(keyList));
-    dispatch(getParcelInfo()).then(() => setIsLoading(false))
+    dispatch(getParcelInfo()).then(() => setIsLoading(false)).catch(() => console.log('oh no!'))
   }
 
   const searchFilter = (e) => {
@@ -89,7 +89,7 @@ function App() {
         }
         <div className='blur'></div>
       </div>
-    
+      <div className='background-shape'></div>
     </div>
   );
 }
