@@ -1,13 +1,235 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background-color:#415d9c;
+  overflow-x: hidden;
+  font-family: 'Electrolize', sans-serif;
+}
+.parcelInfo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.blur {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+.title {
+  margin-top: 4rem;
+}
+
+.loading {
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+.loading-text::after {
+  content: 'Loading.';
+  animation: bideTime 3s linear infinite;
+}
+@keyframes bideTime {
+  0% {
+    content: "Loading"
+  }
+  10% {
+    content: ".Loading."
+  }
+  20% {
+    content: '..Loading..'
+  }
+  30% {
+    content: '...Loading...'
+  }
+  40% {
+    content: '....Loading....'
+  }
+  50% {
+    content: '.....Loading.....'
+  }
+  60% {
+    content: '....Loading....'
+  }
+  70% {
+    content: '...Loading...'
+  }
+  80% {
+    content: '..Loading..'
+  }
+  90% {
+    content: ".Loading."
+  }
+  100% {
+    content: "Loading"
+  }
+}
+
+
+.input-for-keys {
+  margin: 2rem 1rem 1rem 1rem;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 15px;    
+  border: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.input-for-keys p {
+  margin-bottom: 0.25rem;
+}
+
+.keys-input {
+  width: 90%;
+  height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;    
+  border: 1px solid rgba(0,0,0,0.4);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  outline: none;
+}
+
+.results-filter-container {
+  margin: 1rem;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 15px;    
+  border: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.filter-header {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+.search-input {
+  width: 90%;
+  height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px ;    
+  border: 1px solid rgba(0,0,0,0.4) ;
+  border-right: 1px solid rgba(255,255,255,0.2) ;
+  border-bottom: 1px solid rgba(255,255,255,0.2) ;
+  background: rgba(255,255,255,0.15) ;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2) ;
+  outline: none;
+}
+
+.btn {
+  transform-style: preserve-3d;
+  transform: perspective(100px);
+  color: white !important;
+  width: 200px !important;
+  text-align: center;
+  margin-top: 1rem !important;
+  padding: 0.35rem !important;
+  border-radius: 10px !important;    
+  border: 1px solid rgba(255,255,255,0.3)  !important;
+  border-right: 1px solid rgba(255,255,255,0.2)  !important;
+  border-bottom: 1px solid rgba(255,255,255,0.2)  !important;
+  background: rgba(255,255,255,0.15)  !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2)  !important;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.1)  !important;
+}
+
+.btn p {
+  transform: translateZ(30px);
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border-radius: 15px;    
+  border: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.table-headers {
+  font-size: 0.75rem;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+.parcelInfo-listview {
+  color: white !important;
+  padding: 1rem;
+  border-radius: 5px ;    
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  border-right: 1px solid rgba(255,255,255,0.2) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.15) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+  font-size: 0.75rem !important;
+  width: 90% !important;
+  height: 2rem;
+  line-height: 0.75rem !important;
+  padding: 0 1rem !important;
+  margin: 1px !important;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
+}
+.parcelInfo-listview p, .table-headers h2{
+  width: 30%;
+}
+.parcelInfo-listview p {
+  transform: translateZ(35px);
+}
+.parcelInfo-listview *:first-child, .table-headers *:first-child{
+  width: 10%;
 }
