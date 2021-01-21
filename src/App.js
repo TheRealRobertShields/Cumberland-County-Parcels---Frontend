@@ -89,7 +89,6 @@ function App() {
         }
         <div className='blur'></div>
       </div>
-      <div className='background-shape'></div>
     </div>
   );
 }
