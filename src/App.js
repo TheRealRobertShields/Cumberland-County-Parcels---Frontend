@@ -24,9 +24,8 @@ function App() {
   }
 
   const fetchData = (e) => {
-    document.querySelector('.keys-input').value = '';
     setIsLoading(true)
-    dispatch(createKeyList(keyList));
+    dispatch(createKeyList(keyList)).then(() => console.log('saving to DB')).catch(() => console.log('oh no!'));
     dispatch(getParcelInfo()).then(() => setIsLoading(false)).catch(() => console.log('oh no!'))
   }
 
@@ -55,7 +54,8 @@ function App() {
       <div className='parcelInfo-container'>
         <h1 className='title'>Cumberland County Parcels</h1>
         <div className='input-for-keys'>
-          <h3>Paste keys here</h3><p className='key-count-display'></p>
+          <h3>Paste keys here</h3>
+          <p className='key-count-display'></p>
           <input className='keys-input' type='text' onChange={countItems}/>
           <Tilt className='btn' onClick={fetchData}><p>Fetch Data</p></Tilt>
         </div>
