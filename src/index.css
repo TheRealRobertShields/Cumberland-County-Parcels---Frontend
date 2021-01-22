@@ -266,3 +266,28 @@ body{
   0% {transform: translateY(-20px);}
   100% {transform: translateY(0px);}
 } */
+
+
+
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-input {
+  display: none;
+}
+.file-input-label {
+  text-align: center;
+  margin-top: 1rem;
+  width: 80%;
+  padding: 0.25rem 1rem;
+  border-radius: 5px ;    
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  border-right: 1px solid rgba(255,255,255,0.2) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.15) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+}

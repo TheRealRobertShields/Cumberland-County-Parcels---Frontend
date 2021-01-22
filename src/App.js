@@ -5,6 +5,7 @@ import Tilt from 'react-vanilla-tilt';
 import './App.css';
 import { createKeyList } from './ACTIONS/keyListActions';
 import { useState } from 'react';
+import FileUpload from './COMPONENTS/FileUpload';
 
 function App() {
   const [keyList, setKeyList] = useState({ parcelKey: [] });
@@ -52,7 +53,7 @@ function App() {
     <div className="App">
       
       <div className='parcelInfo-container'>
-        <h1 className='title'>Cumberland County Parcels</h1>
+        {/* <h1 className='title'>Cumberland County Parcels</h1>
         <div className='input-for-keys'>
           <h3>Paste keys here</h3>
           <p className='key-count-display'></p>
@@ -87,8 +88,9 @@ function App() {
 
         </>
         }
-        <div className='blur'></div>
+        <div className='blur'></div> */}
       </div>
+      <FileUpload />
     </div>
   );
 }
