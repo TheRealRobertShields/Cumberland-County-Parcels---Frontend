@@ -88,6 +88,7 @@ const FileUpload = () => {
             parcelData.ownerZip = ownerZip
             // console.log(i+1 + "  >  " + ownerState + "  >  " + ownerZip)
             processedData.push(parcelData)
+            
         }
         console.log(processedData);
         setList(processedData)
@@ -110,6 +111,8 @@ const FileUpload = () => {
         document.querySelector('.results-count').textContent = 'search result(s)';
         }
     }
+
+    
     
     return (
         <div className='file-upload-container'>
@@ -134,25 +137,25 @@ const FileUpload = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>Key</th>
-                            <th>Address</th>
-                            <th>City</th>
-                            <th>Owner</th>
-                            <th>Own Address</th>
-                            <th>Own State</th>
-                            <th>Own Zip</th>
+                            <th className='col7'>Key</th>
+                            <th className='col2'>Address</th>
+                            <th className='col3'>City</th>
+                            <th className='col4'>Owner</th>
+                            <th className='col5'>Own Address</th>
+                            <th className='col6 '>Own State</th>
+                            <th className='col7'>Own Zip</th>
                         </tr>
                     </thead>
                     <tbody>
                         {list.map(parcel => (
                             <tr className='data-row' key={parcel.key}>
-                                <td>{parcel.key}</td>
-                                <td className='long-text'>{parcel.address}</td>
-                                <td>{parcel.city}</td>
-                                <td className='long-text'>{parcel.owner}</td>
-                                <td className='long-text'>{parcel.ownerAddress}</td>
-                                <td>{parcel.ownerState}</td>
-                                <td>{parcel.ownerZip}</td>
+                                <td className='col1'>{parcel.key}</td>
+                                <td className='col2'>{parcel.address}</td>
+                                <td className='col3'>{parcel.city}</td>
+                                <td className='col4'>{parcel.owner}</td>
+                                <td className='col5'>{parcel.ownerAddress}</td>
+                                <td className='col6'>{parcel.ownerState}</td>
+                                <td className='col7'>{parcel.ownerZip}</td>
                             </tr>
                         ))}
                     </tbody>

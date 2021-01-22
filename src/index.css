@@ -1,3 +1,7 @@
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
 * {
@@ -326,6 +330,7 @@ body{
 
 
 .data-table {
+  width: 100%;
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
@@ -334,6 +339,7 @@ body{
 }
 table {
   color: white;
+  max-width: 1200px;
   width: 95%;
   font-size: 12px;
   border-collapse: collapse;
@@ -341,7 +347,11 @@ table {
 th {
   font-weight: 100;
   border: 1px solid #6f6f6f;
-  background-color: thistle;
+  background-color: rgba(168, 216, 238, 0.158);
+  padding: 3px;
+}
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.253);
 }
 td {
   font-weight: 100;
@@ -352,4 +362,26 @@ td {
 }
 .long-text {
   text-align: left;
+}
+
+.col1 {
+  width: 5%;
+}
+.col2 {
+  width: 15%;
+}
+.col3 {
+  width: 15%;
+}
+.col4 {
+  width: 40%;
+}
+.col5 {
+  width: 15%;
+}
+.col6 {
+  width: 5%;
+}
+.col7 {
+  width: 5%;
 }

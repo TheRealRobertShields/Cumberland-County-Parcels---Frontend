@@ -91,6 +91,8 @@ function App() {
         <div className='blur'></div> */}
       </div>
       <FileUpload />
+      <div id='scroll-path'></div>
+      <div id='scroll-progress'></div>
     </div>
   );
 }
