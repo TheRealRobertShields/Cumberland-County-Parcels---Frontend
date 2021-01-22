@@ -1,53 +1,53 @@
 
-import { useDispatch, useSelector } from 'react-redux';
-import { getParcelInfo } from './ACTIONS/parcelActions';
-import Tilt from 'react-vanilla-tilt';
-import './App.css';
-import { createKeyList } from './ACTIONS/keyListActions';
-import { useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getParcelInfo } from './ACTIONS/parcelActions';
+// import Tilt from 'react-vanilla-tilt';
+// import './App.css';
+// import { createKeyList } from './ACTIONS/keyListActions';
+// import { useState } from 'react';
 import FileUpload from './COMPONENTS/FileUpload';
 
 function App() {
-  const [keyList, setKeyList] = useState({ parcelKey: [] });
-  const [isLoading, setIsLoading] = useState(false);
-  const dispatch = useDispatch();
+  // const [keyList, setKeyList] = useState({ parcelKey: [] });
+  // const [isLoading, setIsLoading] = useState(false);
+  // const dispatch = useDispatch();
 
-  const parcelInfo = useSelector((state) => state.parcelInfo)
-  console.log(parcelInfo)
+  // const parcelInfo = useSelector((state) => state.parcelInfo)
+  // console.log(parcelInfo)
   
-  const countItems = (e) => {
-    setKeyList({ ...keyList, parcelKey: e.target.value.trim().split(/\s+/) })
-    // Number of Parcel Keys entered.
-    if (e.target.value.trim() === '')
-      document.querySelector('.key-count-display').innerHTML = 'No keys detected';
-    else
-      document.querySelector('.key-count-display').innerHTML = e.target.value.trim().split(/\s+/).length + ' keys detected';
-  }
+  // const countItems = (e) => {
+  //   setKeyList({ ...keyList, parcelKey: e.target.value.trim().split(/\s+/) })
+  //   // Number of Parcel Keys entered.
+  //   if (e.target.value.trim() === '')
+  //     document.querySelector('.key-count-display').innerHTML = 'No keys detected';
+  //   else
+  //     document.querySelector('.key-count-display').innerHTML = e.target.value.trim().split(/\s+/).length + ' keys detected';
+  // }
 
-  const fetchData = (e) => {
-    setIsLoading(true)
-    dispatch(createKeyList(keyList)).then(() => console.log('saving to DB')).catch(() => console.log('oh no!'));
-    dispatch(getParcelInfo()).then(() => setIsLoading(false)).catch(() => console.log('oh no!'))
-  }
+  // const fetchData = (e) => {
+  //   setIsLoading(true)
+  //   dispatch(createKeyList(keyList)).then(() => console.log('saving to DB')).catch(() => console.log('oh no!'));
+  //   dispatch(getParcelInfo()).then(() => setIsLoading(false)).catch(() => console.log('oh no!'))
+  // }
 
-  const searchFilter = (e) => {
-    console.log(e.target.value.toUpperCase())
-    var results = document.querySelectorAll('.parcelInfo-listview');
-    var resultsCount = 0;
-    results.forEach(result => {
-      if (!result.textContent.toUpperCase().includes(e.target.value.toUpperCase())) {
-        result.style.display = 'none';
-      }
-      else if (result.textContent.toUpperCase().includes(e.target.value.toUpperCase())) {
-        result.style.display = 'flex';
-        resultsCount += 1;
-      }
-      document.querySelector('.results-count').textContent = resultsCount + ' result(s) of ' + parcelInfo.length;
-    })
-    if (resultsCount === 0 && e.target.value.length === 0) {
-      document.querySelector('.results-count').textContent = 'search result(s)';
-    }
-  }
+  // const searchFilter = (e) => {
+  //   console.log(e.target.value.toUpperCase())
+  //   var results = document.querySelectorAll('.parcelInfo-listview');
+  //   var resultsCount = 0;
+  //   results.forEach(result => {
+  //     if (!result.textContent.toUpperCase().includes(e.target.value.toUpperCase())) {
+  //       result.style.display = 'none';
+  //     }
+  //     else if (result.textContent.toUpperCase().includes(e.target.value.toUpperCase())) {
+  //       result.style.display = 'flex';
+  //       resultsCount += 1;
+  //     }
+  //     document.querySelector('.results-count').textContent = resultsCount + ' result(s) of ' + parcelInfo.length;
+  //   })
+  //   if (resultsCount === 0 && e.target.value.length === 0) {
+  //     document.querySelector('.results-count').textContent = 'search result(s)';
+  //   }
+  // }
 
   return (
     <div className="App">
