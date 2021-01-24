@@ -32,14 +32,17 @@ function App() {
     dispatch(createKeyList(keyList)).then(() => console.log('saving to DB')).catch(() => console.log('could not save to db! :('));
     dispatch(getParcelInfo()).then(() => {
       setIsLoading(false)
-      createCSV()
-    }).catch(() => console.log('oh no!'))
+    }).catch((error) => console.log(error))
   }
 
   const createCSV = () => {
-    const parser = new Parser(['Pin','Location','Owner','OwnerLocation','DeedDate','PackageSaleDate','ParcelKey','LandValue','BuildingValue','MiscValue','TotalBuildings','TotalUnits','TotalLivingArea','TotalGLA','Location2','BuildingDescription','PhysicalDesription'])
-    const csv = parser.parse((parcelInfo))
+    const fields = ['Pin','Address','Owner','AddressOwner','DeedDate','PackageSaleDate','ParcelKey','LandValue','BuildingValue','MiscValue','TotalBuildings','TotalUnits','TotalLivingArea','TotalGLA','Address2','BuildingDescription','PhysicalDepreciation']
+    const opts = {fields}
+    const parser = new Parser(opts)
+    const csv = parser.parse(parcelInfo)
+    console.log(csv)
     const blob = new Blob([csv], { type: 'text/csv' })
+    console.log(blob)
     setDownloadUrl(window.URL.createObjectURL(blob))
   }
 
@@ -74,6 +77,7 @@ function App() {
           <Tilt className='btn' onClick={fetchData}><p>Fetch Data</p></Tilt>
         </div>
         <div className='downloadcsv-container'>
+            <div onClick={createCSV}>createCSV</div>
             <a id='downloadcsv' href={downloadUrl} download='parcelInfo.csv'>download</a>
         </div>
         {isLoading ? <div className='loading'><p className='loading-text'></p></div> :
