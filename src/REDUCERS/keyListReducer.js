@@ -5,7 +5,8 @@ export default (keylist = [], action) => {
             console.log(action.type)            
             return action.payload;
         case 'CREATE_KEYLIST':
-            console.log(action.type)    
+            console.log(action.type) 
+            console.log(keylist)   
             return [ ...keylist, action.payload];
         default:
             return keylist;
