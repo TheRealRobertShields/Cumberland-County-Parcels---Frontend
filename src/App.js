@@ -15,7 +15,6 @@ function App() {
   const dispatch = useDispatch();
 
   const parcelInfo = useSelector((state) => state.parcelInfo)
-  console.log(parcelInfo)
   
   const countItems = (e) => {
     setKeyList({ ...keyList, parcelKey: e.target.value.trim().split(/\s+/) })
@@ -28,10 +27,10 @@ function App() {
 
   const fetchData = (e) => {
     setIsLoading(true)
-    document.querySelector('.keys-input').setAttribute('disabled', true)
-    dispatch(createKeyList(keyList)).then(() => console.log('saving to DB')).catch(() => console.log('could not save to db! :('));
+    dispatch(createKeyList(keyList)).then(() => '').catch(() => console.log('could not save to db! :('));
     dispatch(getParcelInfo()).then(() => {
       setIsLoading(false)
+      document.querySelector('.disable-overlay').style.display = 'none';
     }).catch((error) => console.log(error))
   }
 
@@ -73,12 +72,13 @@ function App() {
         <div className='input-for-keys'>
           <h3>Paste keys here</h3>
           <p className='key-count-display'></p>
-          <input className='keys-input' type='text' onChange={countItems}/>
+          <input className='keys-input' type='text' onChange={countItems} placeholder='Example >>> 105491 105492 105493...'/>
           <Tilt className='btn' onClick={fetchData}><p>Fetch Data</p></Tilt>
         </div>
         <div className='downloadcsv-container'>
-            <div onClick={createCSV}>createCSV</div>
-            <a id='downloadcsv' href={downloadUrl} download='parcelInfo.csv'>download</a>
+            <div onClick={createCSV} className='csv-actions'>createCSV</div>
+            <a id='downloadcsv' href={downloadUrl} download='parcelInfo.csv' className='csv-actions'>download</a>
+            <div className='disable-overlay'></div>
         </div>
         {isLoading ? <div className='loading'><p className='loading-text'></p></div> :
         

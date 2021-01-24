@@ -82,8 +82,13 @@ body{
     content: "Loading"
   }
 }
-
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(177, 177, 177);
+  opacity: 1; /* Firefox */
+}
+input {
+  color: white;
+}
 .input-for-keys {
   margin: 2rem 1rem 1rem 1rem;
   width: 100%;
@@ -174,6 +179,7 @@ body{
 
 .btn:hover {
   background: rgba(255,255,255,0.1)  !important;
+  cursor: pointer;
 }
 
 .btn p {
@@ -289,6 +295,7 @@ body{
 .button:hover {
   background: rgba(0, 255, 0, 0.2);
   width: 110px;
+  cursor: pointer;
 }
 
 .data-rows {
@@ -386,6 +393,7 @@ td {
 }
 
 .downloadcsv-container {
+  position: relative;
   padding: 0.5rem ;
   margin: 0.25rem ;
   border-radius: 5px ;    
@@ -394,12 +402,54 @@ td {
   border-bottom: 1px solid rgba(255,255,255,0.2);
   background: rgba(0, 247, 255, 0.1);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 40%;
+}
+.csv-actions:hover {
+  transform: scale(1.1);
+  background: rgba(0, 247, 255, 0.3);
+  cursor: pointer;
+}
+.downloadcsv-container .csv-actions {
+  padding: 0.5rem ;
+  margin: 0.5rem;
+  border-radius: 5px ;    
+  border: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0, 247, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: all 0.2s;
 }
-.downloadcsv-container:hover {
-  transform: scale(1.2);
-  background: rgba(0, 247, 255, 0.3);
+
+.disable-overlay {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: white;
 }
-.hidden {
-  visibility: hidden;
+.disable-overlay:hover::after {
+  content: 'Fetch Data first.';
+  position: absolute;
+  top: -1px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.705);
+  border-radius: 5px ;    
+  border: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
